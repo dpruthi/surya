@@ -11,10 +11,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class App 
 {
     public static void main( String[] args )
-    {
+    {	System.setProperty("webdriver.chrome.driver","\\C:\\Users\\deepak.pruthi\\eclipse-workspace\\autoGithub\\src\\ChromeDriver\\chromedriver.exe\\");
     	WebDriver driver = new ChromeDriver();
-		System.setProperty("webdriver.chrome.driver",
-				"\\C:\\Users\\deepak.pruthi\\eclipse-workspace\\autoGithub\\src\\ChromeDriver\\chromedriver.exe\\");
+	
 		
 		driver.get("https://github.com/");
 		driver.findElement(By.id("user[login]")).sendKeys("dpruthixyz");
