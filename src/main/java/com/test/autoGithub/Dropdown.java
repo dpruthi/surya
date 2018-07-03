@@ -21,7 +21,7 @@ public class Dropdown {
 
 		WebElement gender_dropdown = driver.findElement(By.id("registerform-gender"));
 		Select gender_dd = new Select(gender_dropdown);
-		gender_dd.selectByIndex(1);
+		gender_dd.selectByIndex(1); 
 	}
 
 }

@@ -22,6 +22,8 @@ public class zohoDropDown {
 		WebElement country_dropdown = driver.findElement(By.id("country"));
 		Select country_dd = new Select(country_dropdown);
 		//country_dd.selectByVisibleText("Canada");
+		
+		Thread.sleep(3000);
 		country_dd.selectByIndex(5);
 
 	}
