@@ -21,5 +21,6 @@ public class App
 		driver.findElement(By.id("user[password]")).sendKeys("qwerty646@");
 		driver.findElement(By.xpath("//button[text()='Sign up for GitHub']")).click();
 		driver.manage().window().maximize();
+		
     }
 }
