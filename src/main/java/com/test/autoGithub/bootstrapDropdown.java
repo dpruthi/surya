@@ -1,6 +1,7 @@
 package com.test.autoGithub;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +11,8 @@ import org.testng.annotations.Test;
 
 public class bootstrapDropdown {
 
+	String optionOnWhichClick;
+
 	@Test
 	public void bootdropdown() throws InterruptedException {
 
@@ -18,27 +21,30 @@ public class bootstrapDropdown {
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://github.com/");
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//a[@class='text-bold text-white no-underline'][contains(text(),'Sign in')]"))
-				.click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//a[text()='Sign in']")).click();
 		driver.findElement(By.xpath("//input[@id='login_field']")).sendKeys("dpruthi");
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("qwerty646@");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//summary[@class='HeaderNavlink name mt-1']")).click();
-		List<WebElement> dd_menu = driver.findElements(By.xpath(
-				"//details[@class='details-overlay details-reset js-dropdown-details d-flex pl-2 flex-items-center']//ul[@class='dropdown-menu dropdown-menu-sw']//li/a"));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.findElement(By.xpath("//img[@alt ='@dpruthi']")).click();
+
+		bootstrapDropdown ref = new bootstrapDropdown();
+		ref.selectValueFromBootStrapDropDown(driver.findElements(By.xpath("//a[text()='Your gists']")), "Your gists");
+	}
+
+	public void selectValueFromBootStrapDropDown(List<WebElement> dd_menu, String optionOnWhichClick) {
 
 		for (int i = 0; i < dd_menu.size(); i++) {
 
 			WebElement element = dd_menu.get(i);
 			String inner = element.getAttribute("innerHTML");
-			if (inner.contentEquals("Your gists")) {
+			if (inner.contentEquals(optionOnWhichClick)) {
 
 				element.click();
 				break;
 			}
-			
+
 			System.out.println(inner);
 
 		}

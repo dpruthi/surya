@@ -16,7 +16,7 @@ public class zohoDropDown {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.zoho.com/signup.html");
 		driver.findElement(By.id("emailfield")).sendKeys("dpruthi66@yopmail.com");
-		driver.findElement(By.id("password")).sendKeys("qwerty646@");
+		driver.findElement(By.id("password")).sendKeys("qwerty");
 		
 		Thread.sleep(3000);
 		

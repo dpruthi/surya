@@ -14,7 +14,7 @@ public class App
 		driver.get("https://github.com/");
 		driver.findElement(By.id("user[login]")).sendKeys("dpruthixyz");
 		driver.findElement(By.id("user[email]")).sendKeys("dpruthi66@yopmail.com");
-		driver.findElement(By.id("user[password]")).sendKeys("qwerty646@");
+		driver.findElement(By.id("user[password]")).sendKeys("");
 		driver.findElement(By.xpath("//button[text()='Sign up for GitHub']")).click();
 		driver.manage().window().maximize();
 		
