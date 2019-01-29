@@ -24,13 +24,14 @@ public class bootstrapDropdown {
 		Thread.sleep(4000);
 		driver.findElement(By.xpath("//a[text()='Sign in']")).click();
 		driver.findElement(By.xpath("//input[@id='login_field']")).sendKeys("dpruthi");
-		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("");
+		driver.findElement(By.xpath("//input[@id='password']")).sendKeys("qwerty646@");
 		driver.findElement(By.xpath("//input[@type='submit']")).click();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//img[@alt ='@dpruthi']")).click();
+		Thread.sleep(3000);
 
 		bootstrapDropdown ref = new bootstrapDropdown();
-		ref.selectValueFromBootStrapDropDown(driver.findElements(By.xpath("//a[text()='Your gists']")), "Your gists");
+		ref.selectValueFromBootStrapDropDown(driver.findElements(By.xpath("(//ul[@class='dropdown-menu dropdown-menu-sw'])[2]//li/a")), "Help");
 	}
 
 	public void selectValueFromBootStrapDropDown(List<WebElement> dd_menu, String optionOnWhichClick) {
